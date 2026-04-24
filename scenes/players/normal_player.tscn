@@ -2,15 +2,22 @@
 
 [ext_resource type="PackedScene" uid="uid://ddtcrl8umx5ca" path="res://scenes/unit.tscn" id="1_g6jor"]
 [ext_resource type="Script" uid="uid://dcfobfmjqsjwl" path="res://scenes/players/player.gd" id="2_4dkmm"]
-[ext_resource type="Texture2D" uid="uid://cproxhccob85g" path="res://assets/sprites/Players/Player_1.png" id="2_t4nsr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4dkmm"]
 
 [node name="Unit" unique_id=1884331340 instance=ExtResource("1_g6jor")]
 script = ExtResource("2_4dkmm")
-
-[node name="Sprite" parent="Visuals" parent_id_path=PackedInt32Array(617258205) index="1" unique_id=15520479]
-texture = ExtResource("2_t4nsr")
+dash_duration = 0.4
+dash_speed_multi = 2.5
+dash_cooldown = 1.5
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=414761946]
 shape = SubResource("CircleShape2D_4dkmm")
+
+[node name="DashTimer" type="Timer" parent="." index="3" unique_id=1495804470]
+one_shot = true
+
+[node name="DashCooldownTimer" type="Timer" parent="." index="4" unique_id=1367694456]
+one_shot = true
+
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

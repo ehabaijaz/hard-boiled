@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UnitStats" format=3 uid="uid://byi10v6vh7j5m"]
+
+[ext_resource type="Texture2D" uid="uid://cproxhccob85g" path="res://assets/sprites/Players/Player_1.png" id="1_2cvyj"]
+[ext_resource type="Script" uid="uid://4as1cwampmwj" path="res://scenes/resources/unit/unit_stats.gd" id="1_wwput"]
+
+[resource]
+script = ExtResource("1_wwput")
+name = "Normal"
+icon = ExtResource("1_2cvyj")
+metadata/_custom_type_script = "uid://4as1cwampmwj"

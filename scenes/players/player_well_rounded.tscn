@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bd682lybke8bw"]
+
+[ext_resource type="PackedScene" uid="uid://ddtcrl8umx5ca" path="res://scenes/unit.tscn" id="1_iafer"]
+[ext_resource type="Script" uid="uid://dcfobfmjqsjwl" path="res://scenes/players/player.gd" id="2_tfyga"]
+[ext_resource type="Texture2D" uid="uid://cproxhccob85g" path="res://assets/sprites/Players/Player_1.png" id="2_vltf8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tfyga"]
+radius = 32.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8jcil"]
+
+[node name="PlayerWellRounded" unique_id=1884331340 instance=ExtResource("1_iafer")]
+script = ExtResource("2_tfyga")
+
+[node name="Visuals" parent="." index="0" unique_id=617258205]
+scale = Vector2(0.5, 0.5)
+
+[node name="Shadow" parent="Visuals" index="0" unique_id=1568234060]
+modulate = Color(0.14622876, 0.14622876, 0.14622873, 1)
+position = Vector2(2, -3)
+scale = Vector2(0.8, 1)
+
+[node name="Sprite" parent="Visuals" index="1" unique_id=15520479]
+position = Vector2(1, -60)
+texture = ExtResource("2_vltf8")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=414761946]
+position = Vector2(0, -32)
+shape = SubResource("CircleShape2D_tfyga")
+
+[node name="AnimationPlayer" parent="." index="2" unique_id=1101550174]
+libraries/ = SubResource("AnimationLibrary_8jcil")

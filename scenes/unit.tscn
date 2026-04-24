@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://balau3k2bm51l" path="res://scenes/unit.gd" id="1_1jvru"]
 [ext_resource type="Texture2D" uid="uid://devt2xbk78rej" path="res://assets/sprites/shadow.png" id="1_k673f"]
+[ext_resource type="Texture2D" uid="uid://cproxhccob85g" path="res://assets/sprites/Players/Player_1.png" id="3_1jvru"]
 
 [sub_resource type="Animation" id="Animation_tb304"]
 length = 0.001
@@ -53,6 +54,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visuals/Shadow:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, -2)]
+}
 
 [sub_resource type="Animation" id="Animation_k673f"]
 resource_name = "die"
@@ -68,7 +81,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, -67.48257), Vector2(1, -100), Vector2(1, -67.48257)]
+"values": [Vector2(1, -48), Vector2(1, -100), Vector2(1, -48)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -122,7 +135,31 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.20000002, 0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 0.8), Vector2(1, 1), Vector2(1.2, 0.8)]
+"values": [Vector2(1, 1), Vector2(1.1, 0.9), Vector2(1, 1), Vector2(1.1, 0.9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Shadow:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, -5)]
 }
 
 [sub_resource type="Animation" id="Animation_gic7v"]
@@ -164,7 +201,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.15, 0.3, 0.45000002),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, -61), Vector2(1, -75), Vector2(1, -61), Vector2(1, -75)]
+"values": [Vector2(1, -48), Vector2(1, -62), Vector2(1, -48), Vector2(1, -62)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -202,9 +239,10 @@ texture = ExtResource("1_k673f")
 unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(1, -59)
+texture = ExtResource("3_1jvru")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=414761946]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1101550174]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1629522571]
 libraries/ = SubResource("AnimationLibrary_tb304")
 autoplay = &"idle"

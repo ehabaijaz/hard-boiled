@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://8juijaynuupd"]
+
+[ext_resource type="PackedScene" uid="uid://nve7qhlffuve" path="res://scenes/enemies/enemy_chaser_slow.tscn" id="1_qtypb"]
+[ext_resource type="Texture2D" uid="uid://4mllmwdfhmce" path="res://assets/sprites/Enemies/Enemy_4.png" id="2_3o6o0"]
+
+[node name="EnemyShooter" unique_id=2022603899 instance=ExtResource("1_qtypb")]
+
+[node name="Sprite" parent="Visuals" parent_id_path=PackedInt32Array(617258205) index="1" unique_id=15520479]
+texture = ExtResource("2_3o6o0")

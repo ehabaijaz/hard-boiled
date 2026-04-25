@@ -3,4 +3,5 @@ class_name Camera
 
 func _process(delta: float) -> void:
 	if is_instance_valid(Global.player):
-		global_position = Global.player.global_position
+			global_position = Global.player.global_position
+if in

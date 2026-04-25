@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://balau3k2bm51l" path="res://scenes/unit.gd" id="1_1jvru"]
 [ext_resource type="Texture2D" uid="uid://devt2xbk78rej" path="res://assets/sprites/shadow.png" id="1_k673f"]
-[ext_resource type="Texture2D" uid="uid://cproxhccob85g" path="res://assets/sprites/Players/Player_1.png" id="3_1jvru"]
 
 [sub_resource type="Animation" id="Animation_tb304"]
 length = 0.001
@@ -224,7 +223,7 @@ _data = {
 &"move": SubResource("Animation_gic7v")
 }
 
-[node name="Unit" type="Node2D" unique_id=1884331340]
+[node name="Unit" type="Area2D" unique_id=2022603899]
 script = ExtResource("1_1jvru")
 
 [node name="Visuals" type="Node2D" parent="." unique_id=617258205]
@@ -239,7 +238,6 @@ texture = ExtResource("1_k673f")
 unique_name_in_owner = true
 texture_filter = 1
 position = Vector2(1, -59)
-texture = ExtResource("3_1jvru")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=414761946]
 

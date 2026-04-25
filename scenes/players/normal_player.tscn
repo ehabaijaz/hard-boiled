@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dcfobfmjqsjwl" path="res://scenes/players/player.gd" id="2_4dkmm"]
 [ext_resource type="Resource" uid="uid://byi10v6vh7j5m" path="res://scenes/resources/unit/players/stats_normal_player.tres" id="3_4dkmm"]
 [ext_resource type="Script" uid="uid://cyvxxg6yg5yky" path="res://scenes/players/trail.gd" id="4_r68do"]
+[ext_resource type="Texture2D" uid="uid://cproxhccob85g" path="res://assets/sprites/Players/Player_1.png" id="5_6j0ff"]
 
 [sub_resource type="Curve" id="Curve_4dkmm"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -33,6 +34,7 @@ z_index = 1
 
 [node name="Sprite" parent="Visuals" parent_id_path=PackedInt32Array(617258205) index="2" unique_id=15520479]
 z_index = 1
+texture = ExtResource("5_6j0ff")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=414761946]
 shape = SubResource("CircleShape2D_4dkmm")

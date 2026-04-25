@@ -2,19 +2,50 @@
 
 [ext_resource type="PackedScene" uid="uid://ddtcrl8umx5ca" path="res://scenes/unit.tscn" id="1_r21k7"]
 [ext_resource type="Texture2D" uid="uid://d1ou504pylric" path="res://assets/sprites/Enemies/Enemy_1.png" id="2_5woc2"]
-[ext_resource type="Resource" uid="uid://dgmjcn4tgqqkc" path="res://scenes/resources/unit/enemies/stats_enemy_slow.tres" id="2_hwvhg"]
+[ext_resource type="Script" uid="uid://b10upb3c5mdhs" path="res://scenes/enemies/enemy.gd" id="2_hwvhg"]
+[ext_resource type="Resource" uid="uid://dgmjcn4tgqqkc" path="res://scenes/resources/unit/enemies/stats_enemy_slow.tres" id="3_hwvhg"]
+[ext_resource type="PackedScene" uid="uid://draqeevlk54qx" path="res://components/hitbox_component.tscn" id="5_g3mv3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rqbnj"]
+radius = 14.035668
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hwvhg"]
-radius = 150.0
+radius = 105.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u3cet"]
+radius = 36.0
 
 [node name="EnemyChaserSlow" unique_id=2022603899 instance=ExtResource("1_r21k7")]
-stats = ExtResource("2_hwvhg")
+collision_layer = 3
+script = ExtResource("2_hwvhg")
+flock_push = 20.0
+stats = ExtResource("3_hwvhg")
 
-[node name="Sprite" parent="Visuals" parent_id_path=PackedInt32Array(617258205) index="1" unique_id=15520479]
+[node name="Visuals" parent="." index="0" unique_id=617258205]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite" parent="Visuals" index="1" unique_id=15520479]
 texture = ExtResource("2_5woc2")
 
+[node name="CollisionShape2D" parent="." index="1" unique_id=414761946]
+z_index = 1
+position = Vector2(0, -27)
+shape = SubResource("CircleShape2D_rqbnj")
+
 [node name="VisionArea" type="Area2D" parent="." index="3" unique_id=1093072233]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" index="0" unique_id=726528085]
-position = Vector2(0, -49)
+position = Vector2(0, -22)
 shape = SubResource("CircleShape2D_hwvhg")
+
+[node name="HitboxComponent" parent="." index="5" unique_id=1092673524 instance=ExtResource("5_g3mv3")]
+position = Vector2(1, -59)
+collision_layer = 4
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" index="0" unique_id=1572246170]
+position = Vector2(-1, 34)
+shape = SubResource("CircleShape2D_u3cet")
+debug_color = Color(0.7556423, 0.11514775, 0.3435732, 0.41960785)

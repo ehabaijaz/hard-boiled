@@ -11,15 +11,23 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4dkmm"]
+radius = 11.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6j0ff"]
+radius = 37.01351
 
 [node name="PlayerWellRounded" unique_id=1884331340 instance=ExtResource("1_g6jor")]
+collision_mask = 2
 script = ExtResource("2_4dkmm")
 dash_duration = 0.4
 dash_speed_multi = 2.5
 dash_cooldown = 1.5
 stats = ExtResource("3_4dkmm")
 
-[node name="Trail" type="Line2D" parent="Visuals" parent_id_path=PackedInt32Array(617258205) index="0" unique_id=2074830950 node_paths=PackedStringArray("player")]
+[node name="Visuals" parent="." index="0" unique_id=617258205]
+scale = Vector2(0.5, 0.5)
+
+[node name="Trail" type="Line2D" parent="Visuals" index="0" unique_id=2074830950 node_paths=PackedStringArray("player")]
 unique_name_in_owner = true
 top_level = true
 position = Vector2(0, -25)
@@ -29,14 +37,16 @@ script = ExtResource("4_r68do")
 player = NodePath("../..")
 trail_length = 15
 
-[node name="Shadow" parent="Visuals" parent_id_path=PackedInt32Array(617258205) index="1" unique_id=1568234060]
+[node name="Shadow" parent="Visuals" index="1" unique_id=1568234060]
 z_index = 1
 
-[node name="Sprite" parent="Visuals" parent_id_path=PackedInt32Array(617258205) index="2" unique_id=15520479]
+[node name="Sprite" parent="Visuals" index="2" unique_id=15520479]
 z_index = 1
 texture = ExtResource("5_6j0ff")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=414761946]
+z_index = 1
+position = Vector2(0, -27)
 shape = SubResource("CircleShape2D_4dkmm")
 
 [node name="DashTimer" type="Timer" parent="." index="3" unique_id=1495804470]
@@ -48,6 +58,15 @@ one_shot = true
 [node name="TrailTimer" type="Timer" parent="." index="5" unique_id=1483161754]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="HurtboxComponent" parent="." index="6" unique_id=1021826966]
+collision_layer = 32
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1971743543]
+z_index = 1
+position = Vector2(0, 28)
+shape = SubResource("CircleShape2D_6j0ff")
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="TrailTimer" to="Visuals/Trail" method="_on_trail_timer_timeout"]

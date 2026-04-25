@@ -13,6 +13,7 @@ var move_dir : Vector2
 @onready var collision: CollisionShape2D = $CollisionShape2D
 
 func _ready() -> void:
+	self.scale = Vector2(1.0,1.0)
 	dash_timer.wait_time = dash_duration
 	dash_cooldown_timer.wait_time = dash_cooldown
 var is_dashing := false

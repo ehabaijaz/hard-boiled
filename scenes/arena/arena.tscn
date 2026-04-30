@@ -36,3 +36,15 @@ position = Vector2(-717, -170)
 
 [node name="EnemyChaserSlow2" parent="." unique_id=1780546992 instance=ExtResource("6_jx0ua")]
 position = Vector2(-559, 274)
+
+[node name="EnemyChaserSlow4" parent="." unique_id=1353343871 instance=ExtResource("6_jx0ua")]
+position = Vector2(422, 289)
+
+[node name="EnemyChaserSlow5" parent="." unique_id=1594639408 instance=ExtResource("6_jx0ua")]
+position = Vector2(553, 52)
+
+[node name="EnemyChaserSlow6" parent="." unique_id=1018203766 instance=ExtResource("6_jx0ua")]
+position = Vector2(547, -231)
+
+[node name="EnemyChaserSlow7" parent="." unique_id=650977136 instance=ExtResource("6_jx0ua")]
+position = Vector2(775, -97)

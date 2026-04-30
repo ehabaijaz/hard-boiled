@@ -8,5 +8,5 @@ damage = 4.0
 accuracy = 1.0
 cooldown = 1.5
 max_range = 180.0
-knockback = 1.0
+knockback = 1.5
 metadata/_custom_type_script = "uid://db1gswhaykltt"

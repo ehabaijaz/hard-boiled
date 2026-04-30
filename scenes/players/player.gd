@@ -6,17 +6,21 @@ var move_dir : Vector2
 @export var dash_speed_multi := 2.5
 @export var dash_cooldown := 3.0
 @onready var trail: Trail = %Trail
-
+var current_weapons : Array[Weapon]= []
 
 @onready var dash_timer: Timer = $DashTimer
 @onready var dash_cooldown_timer: Timer = $DashCooldownTimer
 @onready var collision: CollisionShape2D = $CollisionShape2D
+@onready var weapon_container: Node2D = $WeaponContainer
 
 func _ready() -> void:
 	super()
 	self.scale = Vector2(1.0,1.0)
 	dash_timer.wait_time = dash_duration
 	dash_cooldown_timer.wait_time = dash_cooldown
+	add_weapon(preload("uid://bltmip6lodfi3"))
+	
+	
 
 var is_dashing := false
 var dash_available := true
@@ -56,12 +60,23 @@ func start_dash():
 	visuals.modulate.a = 0.5
 	collision.set_deferred("disabled" , true)
 
+func add_weapon(data: ItemWeapon):
+	var weapon := data.scene.instantiate() as Weapon
+	add_child(weapon)
+	
+	weapon.setup_weapon(data)
+	current_weapons.append(weapon)
+	weapon_container.update_weapons_position(current_weapons)
+	
+	
 func can_dash() -> bool:
 	return not is_dashing and\
 	dash_cooldown_timer.is_stopped()\
 	and Input.is_action_just_pressed("dash") and\
 	move_dir != Vector2.ZERO
 
+func is_facing_right()->bool:
+	return visuals.scale.x == -0.5
 func _on_dash_timer_timeout() -> void:
 	is_dashing = false 
 	visuals.modulate.a = 1

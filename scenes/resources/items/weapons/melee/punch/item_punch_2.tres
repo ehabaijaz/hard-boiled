@@ -2,12 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://cyh23wqn8vcac" path="res://assets/sprites/Weapons/Icons/weapon_punch_icon.png" id="1_pmyts"]
 [ext_resource type="Script" uid="uid://s08xeo5kph0e" path="res://scenes/resources/items/weapons/item_weapon.gd" id="2_dbb7i"]
-[ext_resource type="Resource" uid="uid://b27rpu0qx6phj" path="res://scenes/resources/items/weapons/melee/punch/stats_punch_1.tres" id="3_lvvqu"]
+[ext_resource type="PackedScene" uid="uid://c7ypkt0y2c4er" path="res://scenes/weapons/weapon_punch.tscn" id="2_lvvqu"]
+[ext_resource type="Resource" uid="uid://bkxu4rcwf2rik" path="res://scenes/resources/items/weapons/melee/punch/stats_punch_2.tres" id="3_dbb7i"]
+[ext_resource type="Resource" uid="uid://bb4ascua6u7y5" path="res://scenes/resources/items/weapons/melee/punch/item_punch_3.tres" id="4_lvvqu"]
 
 [resource]
 script = ExtResource("2_dbb7i")
-stats = ExtResource("3_lvvqu")
-item_name = "Punch 1"
+scene = ExtResource("2_lvvqu")
+stats = ExtResource("3_dbb7i")
+upgrade_to = ExtResource("4_lvvqu")
+item_name = "Punch II"
 item_icon = ExtResource("1_pmyts")
-item_cost = 12
+item_tier = 1
+item_cost = 25
 metadata/_custom_type_script = "uid://s08xeo5kph0e"

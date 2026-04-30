@@ -12,8 +12,10 @@ radius = 14.035668
 [sub_resource type="CircleShape2D" id="CircleShape2D_hwvhg"]
 radius = 105.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3mv3"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_u3cet"]
-radius = 36.0
+radius = 41.04875
 
 [node name="EnemyChaserSlow" unique_id=2022603899 instance=ExtResource("1_r21k7")]
 collision_layer = 3
@@ -40,6 +42,15 @@ collision_mask = 2
 position = Vector2(0, -22)
 shape = SubResource("CircleShape2D_hwvhg")
 
+[node name="HurtboxComponent" parent="." index="4" unique_id=1021826966]
+collision_layer = 8
+collision_mask = 16
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=82095444]
+position = Vector2(-1, 59)
+shape = SubResource("CircleShape2D_g3mv3")
+debug_color = Color(0.7785298, 0.05852315, 0.3152111, 0.41960785)
+
 [node name="HitboxComponent" parent="." index="5" unique_id=1092673524 instance=ExtResource("5_g3mv3")]
 position = Vector2(1, -59)
 collision_layer = 4
@@ -53,3 +64,11 @@ debug_color = Color(0.7556423, 0.11514775, 0.3435732, 0.41960785)
 [node name="HealthBar" parent="." index="7" unique_id=1365041016]
 back_color = Color(0.015686275, 0.05490196, 0.16862746, 1)
 fill_color = Color(0.37254903, 0.5372549, 0.75686276, 1)
+
+[node name="FlashTimer" parent="." index="8" unique_id=28821098]
+wait_time = 0.1
+
+[node name="KnockbackTimer" type="Timer" parent="." index="9" unique_id=1960645609]
+one_shot = true
+
+[connection signal="timeout" from="KnockbackTimer" to="." method="_on_knockback_timer_timeout"]

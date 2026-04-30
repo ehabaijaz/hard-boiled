@@ -11,6 +11,6 @@ health = 20
 health_increase_per_wave = 0.0
 damage = 3
 damage_increase_per_wave = 0.0
-block_chance = 1.0
+block_chance = 50.0
 gold_drop = 0.0
 metadata/_custom_type_script = "uid://4as1cwampmwj"

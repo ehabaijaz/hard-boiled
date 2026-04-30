@@ -61,12 +61,16 @@ one_shot = true
 
 [node name="HurtboxComponent" parent="." index="6" unique_id=1021826966]
 collision_layer = 32
-collision_mask = 16
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" index="0" unique_id=1971743543]
 z_index = 1
 position = Vector2(0, 28)
 shape = SubResource("CircleShape2D_6j0ff")
+
+[node name="HealthBar" parent="." index="8" unique_id=1365041016]
+back_color = Color(0.13725491, 0.019607844, 0.02745098, 1)
+fill_color = Color(1, 0.2901961, 0.45490196, 1)
 
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="TrailTimer" to="Visuals/Trail" method="_on_trail_timer_timeout"]

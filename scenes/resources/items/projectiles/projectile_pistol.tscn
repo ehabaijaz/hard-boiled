@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cp2i7sfuu1mb2"]
+
+[ext_resource type="Script" uid="uid://c4ovqrcggiust" path="res://components/hitbox_component.gd" id="1_cxe7i"]
+[ext_resource type="Script" uid="uid://bw88iv2bptwfm" path="res://scenes/resources/items/projectiles/projectile.gd" id="1_mjm06"]
+[ext_resource type="Texture2D" uid="uid://45dwbyxmy4wd" path="res://assets/sprites/Projectiles/Projectile_2.png" id="2_8c0bw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8n6fi"]
+radius = 22.0
+
+[node name="ProjectilePistol" type="Node2D" unique_id=178275168 node_paths=PackedStringArray("hitbox")]
+script = ExtResource("1_mjm06")
+hitbox = NodePath("HitboxComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1780146358]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_8c0bw")
+
+[node name="HitboxComponent" type="Area2D" parent="." unique_id=1184931353]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_cxe7i")
+metadata/_custom_type_script = "uid://c4ovqrcggiust"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=157780247]
+shape = SubResource("CircleShape2D_8n6fi")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2024360787]
+
+[connection signal="on_hit_hurtbox" from="HitboxComponent" to="." method="_on_hitbox_component_on_hit_hurtbox"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 	rotate_to_target()
 	if can_use_weapon():
 		use_weapon()
+	update_visuals()
 	
 func setup_weapon(data : ItemWeapon):
 	self.data = data
@@ -60,7 +61,12 @@ func get_idle_rotation()->float:
 		return 0 
 	else:
 		return PI
-		
+
+func update_visuals():
+	if abs(rotation) > PI/2:
+		sprite.scale.y = -0.5
+	else:
+		sprite.scale.y = 0.5
 func calculate_spread():
 	weapon_spread += randf_range(-1 + data.stats.accuracy, 1 - data.stats.accuracy)
 	rotation += weapon_spread

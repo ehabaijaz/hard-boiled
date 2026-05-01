@@ -18,7 +18,7 @@ func _ready() -> void:
 	self.scale = Vector2(1.0,1.0)
 	dash_timer.wait_time = dash_duration
 	dash_cooldown_timer.wait_time = dash_cooldown
-	add_weapon(preload("uid://bltmip6lodfi3"))
+	# add_weapon(preload("uid://coj5hhrbp0qfr"))
 	
 	
 

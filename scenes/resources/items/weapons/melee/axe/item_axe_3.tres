@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemWeapon" format=3 uid="uid://dhpqixju38n1o"]
+
+[ext_resource type="Texture2D" uid="uid://cyh23wqn8vcac" path="res://assets/sprites/Weapons/Icons/weapon_punch_icon.png" id="1_37afp"]
+[ext_resource type="PackedScene" uid="uid://c7ypkt0y2c4er" path="res://scenes/weapons/melee/weapon_punch.tscn" id="2_lsf0l"]
+[ext_resource type="Script" uid="uid://s08xeo5kph0e" path="res://scenes/resources/items/weapons/item_weapon.gd" id="3_y5ktu"]
+[ext_resource type="Resource" uid="uid://cayby64usw8op" path="res://scenes/resources/items/weapons/melee/axe/stats_axe_3.tres" id="4_pwchi"]
+[ext_resource type="Resource" uid="uid://cgo0appjppgud" path="res://scenes/resources/items/weapons/melee/axe/item_axe_4.tres" id="5_you0d"]
+
+[resource]
+script = ExtResource("3_y5ktu")
+scene = ExtResource("2_lsf0l")
+stats = ExtResource("4_pwchi")
+upgrade_to = ExtResource("5_you0d")
+item_name = "Punch III"
+item_icon = ExtResource("1_37afp")
+item_tier = 2
+item_cost = 55
+metadata/_custom_type_script = "uid://s08xeo5kph0e"

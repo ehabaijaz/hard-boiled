@@ -3,9 +3,62 @@
 [ext_resource type="PackedScene" uid="uid://nve7qhlffuve" path="res://scenes/enemies/enemy_chaser_slow.tscn" id="1_ftiyt"]
 [ext_resource type="Texture2D" uid="uid://emsi6ifyt0vf" path="res://assets/sprites/Enemies/Enemy_5.png" id="2_mu78c"]
 [ext_resource type="Resource" uid="uid://65ii2cb5wuuo" path="res://scenes/resources/unit/enemies/stats_enemy_enemy_charger.tres" id="2_wn50h"]
+[ext_resource type="Script" uid="uid://w5lq8ec7ywuc" path="res://scenes/enemies/charge_behavior.gd" id="4_wn50h"]
+
+[sub_resource type="Animation" id="Animation_wn50h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fyo26"]
+resource_name = "charge"
+length = 0.7
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.74667186, 0.0042547584, 0.12050178, 1), Color(1, 1, 1, 1), Color(0.74509805, 0.003921569, 0.12156863, 1), Color(1, 1, 1, 1), Color(0.74509805, 0.003921569, 0.12156863, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5qkxf"]
+_data = {
+&"RESET": SubResource("Animation_wn50h"),
+&"charge": SubResource("Animation_fyo26")
+}
 
 [node name="EnemyCharger" unique_id=2022603899 instance=ExtResource("1_ftiyt")]
 stats = ExtResource("2_wn50h")
 
 [node name="Sprite" parent="Visuals" parent_id_path=PackedInt32Array(617258205) index="1" unique_id=15520479]
 texture = ExtResource("2_mu78c")
+
+[node name="CollisionShape2D" parent="VisionArea" parent_id_path=PackedInt32Array(1093072233) index="0" unique_id=726528085]
+visible = false
+
+[node name="HitboxComponent" parent="." index="5" unique_id=1092673524]
+visible = false
+
+[node name="ChargeBehavior" type="Node2D" parent="." index="10" unique_id=2095014138 node_paths=PackedStringArray("enemy", "anim_effects")]
+script = ExtResource("4_wn50h")
+enemy = NodePath("..")
+anim_effects = NodePath("../AnimationEffects")
+
+[node name="AnimationEffects" type="AnimationPlayer" parent="." index="11" unique_id=1130350325]
+libraries/ = SubResource("AnimationLibrary_5qkxf")

@@ -1,7 +1,7 @@
 extends Node2D
 class_name WeaponBehavior
 
-@export var weapon:Weapon
+@export var weapon: Weapon
 
 var critical := false
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cyh23wqn8vcac" path="res://assets/sprites/Weapons/Icons/weapon_punch_icon.png" id="1_0mbng"]
 [ext_resource type="Script" uid="uid://s08xeo5kph0e" path="res://scenes/resources/items/weapons/item_weapon.gd" id="2_sqvi1"]
-[ext_resource type="PackedScene" uid="uid://c7ypkt0y2c4er" path="res://scenes/weapons/weapon_punch.tscn" id="2_x0yut"]
+[ext_resource type="PackedScene" uid="uid://c7ypkt0y2c4er" path="res://scenes/weapons/melee/weapon_punch.tscn" id="2_x0yut"]
 [ext_resource type="Resource" uid="uid://bra6heyurl6ox" path="res://scenes/resources/items/weapons/melee/punch/stats_punch_3.tres" id="3_sqvi1"]
 [ext_resource type="Resource" uid="uid://d01nfqp3f7cl5" path="res://scenes/resources/items/weapons/melee/punch/item_punch_4.tres" id="4_x0yut"]
 

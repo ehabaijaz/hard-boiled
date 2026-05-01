@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dver0jm1qv00p"]
+
+[ext_resource type="PackedScene" uid="uid://c7ypkt0y2c4er" path="res://scenes/weapons/melee/weapon_punch.tscn" id="1_jrl4k"]
+[ext_resource type="Texture2D" uid="uid://bbw1axlomamnl" path="res://assets/sprites/Weapons/Melee/Weapon_axe.png" id="2_xq71v"]
+
+[node name="WeaponPunch" unique_id=102337977 instance=ExtResource("1_jrl4k")]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite" parent="." index="0" unique_id=699609867]
+scale = Vector2(1, 1)
+texture = ExtResource("2_xq71v")

@@ -5,7 +5,45 @@
 [ext_resource type="Texture2D" uid="uid://ov4fmsbglo55" path="res://assets/sprites/Map.png" id="2_aj7ud"]
 [ext_resource type="PackedScene" uid="uid://c4cdpd144d4ui" path="res://scenes/players/normal_player.tscn" id="3_asdgj"]
 [ext_resource type="Script" uid="uid://boattjaofdp1a" path="res://scenes/arena/camera_2d.gd" id="4_aj7ud"]
-[ext_resource type="PackedScene" uid="uid://cut6odpmfm2sx" path="res://scenes/enemies/enemy_charger.tscn" id="7_u52cf"]
+[ext_resource type="PackedScene" uid="uid://8juijaynuupd" path="res://scenes/enemies/enemy_shooter.tscn" id="6_jx0ua"]
+[ext_resource type="Script" uid="uid://pebn1ja4cscn" path="res://scenes/arena/spawner.gd" id="7_u52cf"]
+[ext_resource type="Script" uid="uid://du75yc2llunit" path="res://scenes/resources/waves/wave_data.gd" id="8_2ml6w"]
+[ext_resource type="Script" uid="uid://4as1cwampmwj" path="res://scenes/resources/unit/unit_stats.gd" id="8_ii07k"]
+[ext_resource type="Script" uid="uid://dwi11d5k1ivt3" path="res://scenes/resources/waves/wave_unit_data.gd" id="9_xgbxb"]
+[ext_resource type="PackedScene" uid="uid://nve7qhlffuve" path="res://scenes/enemies/enemy_chaser_slow.tscn" id="10_t3vx8"]
+[ext_resource type="Resource" uid="uid://dgmjcn4tgqqkc" path="res://scenes/resources/unit/enemies/stats_enemy_slow.tres" id="11_fv88w"]
+[ext_resource type="PackedScene" uid="uid://bvsbw2vlupkhr" path="res://scenes/enemies/enemy_chaser_mid.tscn" id="11_rhjlh"]
+[ext_resource type="Resource" uid="uid://65ii2cb5wuuo" path="res://scenes/resources/unit/enemies/stats_enemy_enemy_charger.tres" id="12_w4nra"]
+[ext_resource type="Resource" uid="uid://crwcfrll42sxa" path="res://scenes/resources/unit/enemies/stats_enemy_chaser_mid.tres" id="13_t3vx8"]
+[ext_resource type="Resource" uid="uid://d138oerdnl4mf" path="res://scenes/resources/unit/enemies/stats_enemy_chaser_fast.tres" id="14_rhjlh"]
+
+[sub_resource type="Resource" id="Resource_tp84n"]
+script = ExtResource("9_xgbxb")
+unit_scene = ExtResource("10_t3vx8")
+weight = 1.0
+metadata/_custom_type_script = "uid://dwi11d5k1ivt3"
+
+[sub_resource type="Resource" id="Resource_8kk48"]
+script = ExtResource("9_xgbxb")
+unit_scene = ExtResource("6_jx0ua")
+weight = 1.0
+metadata/_custom_type_script = "uid://dwi11d5k1ivt3"
+
+[sub_resource type="Resource" id="Resource_wqbss"]
+script = ExtResource("9_xgbxb")
+unit_scene = ExtResource("11_rhjlh")
+weight = 1.0
+metadata/_custom_type_script = "uid://dwi11d5k1ivt3"
+
+[sub_resource type="Resource" id="Resource_fir7s"]
+script = ExtResource("8_2ml6w")
+from = 1
+to = 5
+units = Array[ExtResource("9_xgbxb")]([SubResource("Resource_tp84n"), SubResource("Resource_8kk48"), SubResource("Resource_wqbss")])
+fixed_spawn_time = 0.0
+min_spawn_time = 0.5
+max_spawn_time = 2.0
+metadata/_custom_type_script = "uid://du75yc2llunit"
 
 [node name="Arena" type="Node2D" unique_id=17937212 node_paths=PackedStringArray("player")]
 script = ExtResource("1_asdgj")
@@ -28,5 +66,35 @@ texture = ExtResource("2_aj7ud")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1124926521]
 script = ExtResource("4_aj7ud")
 
-[node name="EnemyCharger" parent="." unique_id=1916892922 instance=ExtResource("7_u52cf")]
-position = Vector2(-140, 295)
+[node name="EnemyShooter" parent="." unique_id=2022603899 instance=ExtResource("6_jx0ua")]
+
+[node name="Spawner" type="Node2D" parent="." unique_id=1796328936]
+script = ExtResource("7_u52cf")
+waves_data = Array[ExtResource("8_2ml6w")]([SubResource("Resource_fir7s")])
+enemy_collection = Array[ExtResource("8_ii07k")]([ExtResource("11_fv88w"), ExtResource("12_w4nra"), ExtResource("13_t3vx8"), ExtResource("14_rhjlh")])
+
+[node name="SpawnTimer" type="Timer" parent="Spawner" unique_id=1391068042]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="WaveTimer" type="Timer" parent="Spawner" unique_id=301619416]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="WaveTimeLabel" type="Label" parent="." unique_id=468298812]
+unique_name_in_owner = true
+offset_top = 52.0
+offset_right = 40.0
+offset_bottom = 112.41667
+theme_override_font_sizes/font_size = 50
+text = "0"
+
+[node name="WaveIndexLabel" type="Label" parent="." unique_id=578271345]
+unique_name_in_owner = true
+offset_right = 172.0
+offset_bottom = 60.416668
+theme_override_font_sizes/font_size = 50
+text = "Wave 1"
+
+[connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="Spawner/WaveTimer" to="Spawner" method="_on_wave_timer_timeout"]

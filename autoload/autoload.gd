@@ -12,6 +12,7 @@ enum UpgradeTier {
 	EPIC,
 	LEGENDARY
 }
+var game_paused := false
 
 func get_chance_success(chance: float)-> bool:
 	var random := randf_range(0,1.0)

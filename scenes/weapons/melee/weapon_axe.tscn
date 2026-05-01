@@ -7,5 +7,4 @@
 scale = Vector2(0.5, 0.5)
 
 [node name="Sprite" parent="." index="0" unique_id=699609867]
-scale = Vector2(1, 1)
 texture = ExtResource("2_xq71v")

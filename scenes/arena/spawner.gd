@@ -13,11 +13,9 @@ var current_wave_data: WaveData
 var spawned_enemies: Array[Enemy] = []
 
 func _ready() -> void:
-	print("Found ", waves_data.size(), " wave resources")
 	Global.game_paused = false
-	if waves_data.is_empty():
-		print("!! ERROR: No waves_data assigned in Inspector")
-	start_wave()
+	if not waves_data.is_empty():
+		start_wave()
 
 func find_wave_data() -> WaveData:
 	for wave in waves_data:

@@ -74,7 +74,7 @@ func add_weapon(data: ItemWeapon):
 	current_weapons.append(weapon)
 	weapon_container.update_weapons_position(current_weapons)
 	
-	
+
 func can_dash() -> bool:
 	return not is_dashing and\
 	dash_cooldown_timer.is_stopped()\

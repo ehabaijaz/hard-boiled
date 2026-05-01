@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c7ypkt0y2c4er" path="res://scenes/weapons/melee/weapon_punch.tscn" id="2_lo81o"]
 [ext_resource type="Script" uid="uid://s08xeo5kph0e" path="res://scenes/resources/items/weapons/item_weapon.gd" id="3_kejbv"]
 [ext_resource type="Resource" uid="uid://b7m0wuwfoovo2" path="res://scenes/resources/items/weapons/melee/wand/stats_punch_1.tres" id="4_avp5x"]
-[ext_resource type="Resource" uid="uid://jekywqg26w0l" path="res://scenes/resources/items/weapons/melee/wand/item_punch_2.tres" id="5_amp4d"]
+[ext_resource type="Resource" uid="uid://jekywqg26w0l" path="res://scenes/resources/items/weapons/melee/wand/item_chainsaw.tres" id="5_amp4d"]
 
 [resource]
 script = ExtResource("3_kejbv")

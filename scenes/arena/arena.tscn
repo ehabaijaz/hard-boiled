@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://nve7qhlffuve" path="res://scenes/enemies/enemy_chaser_slow.tscn" id="10_t3vx8"]
 [ext_resource type="Resource" uid="uid://dgmjcn4tgqqkc" path="res://scenes/resources/unit/enemies/stats_enemy_slow.tres" id="11_fv88w"]
 [ext_resource type="PackedScene" uid="uid://bvsbw2vlupkhr" path="res://scenes/enemies/enemy_chaser_mid.tscn" id="11_rhjlh"]
+[ext_resource type="PackedScene" uid="uid://dc3yduwfprlhi" path="res://scenes/enemies/enemy_chaser_fast.tscn" id="12_rhjlh"]
 [ext_resource type="Resource" uid="uid://65ii2cb5wuuo" path="res://scenes/resources/unit/enemies/stats_enemy_enemy_charger.tres" id="12_w4nra"]
 [ext_resource type="Resource" uid="uid://crwcfrll42sxa" path="res://scenes/resources/unit/enemies/stats_enemy_chaser_mid.tres" id="13_t3vx8"]
 [ext_resource type="Resource" uid="uid://d138oerdnl4mf" path="res://scenes/resources/unit/enemies/stats_enemy_chaser_fast.tres" id="14_rhjlh"]
@@ -35,14 +36,18 @@ unit_scene = ExtResource("11_rhjlh")
 weight = 1.0
 metadata/_custom_type_script = "uid://dwi11d5k1ivt3"
 
+[sub_resource type="Resource" id="Resource_gy0qm"]
+script = ExtResource("9_xgbxb")
+unit_scene = ExtResource("12_rhjlh")
+weight = 1.0
+metadata/_custom_type_script = "uid://dwi11d5k1ivt3"
+
 [sub_resource type="Resource" id="Resource_fir7s"]
 script = ExtResource("8_2ml6w")
 from = 1
 to = 5
-units = Array[ExtResource("9_xgbxb")]([SubResource("Resource_tp84n"), SubResource("Resource_8kk48"), SubResource("Resource_wqbss")])
+units = Array[ExtResource("9_xgbxb")]([SubResource("Resource_tp84n"), SubResource("Resource_8kk48"), SubResource("Resource_wqbss"), SubResource("Resource_gy0qm")])
 fixed_spawn_time = 0.0
-min_spawn_time = 0.5
-max_spawn_time = 2.0
 metadata/_custom_type_script = "uid://du75yc2llunit"
 
 [node name="Arena" type="Node2D" unique_id=17937212 node_paths=PackedStringArray("player")]
